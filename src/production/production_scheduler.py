@@ -6,9 +6,15 @@ import plotly.express as px
 from pyprojroot import here
 import os
 from skimpy import clean_columns
+import numpy as np
+import pandas as pd
+from pyprojroot import here
+import os
 
+path_data = here("./data")
+os.chdir(path_data)
 # Load your data here
-# data_member_index = pd.read_csv('your_data.csv')
+data_member_index = pd.read_csv('data_member_index.csv')
 
 data_member_index_means = (
     data_member_index.drop(columns=["Member ID"])
