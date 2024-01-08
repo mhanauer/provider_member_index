@@ -35,6 +35,11 @@ st.title("What-If Analysis for Member Risk Adjustment")
 high_risk_average_pmpm = data_member_index_means[data_member_index_means["High risk member"] == True]["PMPM"].iloc[0]
 average_member_pmpm = data_member_index_means[data_member_index_means["High risk member"] == False]["PMPM"].iloc[0]
 
+# Display the average PMPM values
+st.write(f"Average PMPM for High-Risk Members: {high_risk_average_pmpm}")
+st.write(f"Average PMPM for Average Members: {average_member_pmpm}")
+
+
 # User input for the number of members to move
 n_members_to_move = st.number_input("Number of High-Risk Members to Move to Average Risk", min_value=1, value=10)
 
@@ -43,5 +48,6 @@ savings = what_if_analysis(n_members_to_move, high_risk_average_pmpm, average_me
 
 if st.button("Calculate Savings"):
     st.write(f"Total savings in PMPM: {savings}")
+st.dataframe(data_member_index)
 
 # Optionally, you can add more interactive elements or visualizations here
