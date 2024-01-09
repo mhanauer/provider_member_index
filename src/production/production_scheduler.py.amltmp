@@ -24,7 +24,7 @@ data_member_index_means = (
 
 # Function to calculate what-if analysis
 def what_if_analysis(n_members_to_move, high_risk_pmpm, average_pmpm):
-    pmpm_difference_per_member = high_risk_pmpm - average_pmpm
+    pmpm_difference_per_member = round(high_risk_pmpm - average_pmpm, 0)
     total_savings = round(pmpm_difference_per_member * n_members_to_move, 0)
     return total_savings
 
@@ -32,6 +32,7 @@ def what_if_analysis(n_members_to_move, high_risk_pmpm, average_pmpm):
 st.title("What-If Analysis for Member Risk Adjustment")
 
 # Get average PMPM values for high-risk and average members, rounded to 0 decimal places
+data_member_index_means = data_member_index_means.round(0)
 high_risk_average_pmpm = data_member_index_means[data_member_index_means["High risk member"] == True]["PMPM"].iloc[0].round(0)
 average_member_pmpm = data_member_index_means[data_member_index_means["High risk member"] == False]["PMPM"].iloc[0].round(0)
 
