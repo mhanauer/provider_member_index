@@ -55,4 +55,4 @@ sorted_data = data_member_index.sort_values(by="Member index")
 
 
 # Display the data_member_index DataFrame
-st.dataframe(sorted_data)
+st.dataframe(sorted_data, hide_index = True)
