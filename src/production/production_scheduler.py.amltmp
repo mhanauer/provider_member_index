@@ -21,6 +21,7 @@ data_member_index_means = (
     .mean()
 ).reset_index()
 
+data_member_index_means_show = data_member_index_means.copy()
 # Function to calculate what-if analysis
 def what_if_analysis(n_members_to_move, high_risk_pmpm, average_pmpm):
     pmpm_difference_per_member = round(high_risk_pmpm - average_pmpm, 0)
@@ -47,7 +48,7 @@ if st.button("Calculate Savings"):
     st.write(f"Total savings in PMPM: ${savings}")
 
 st.write("Data Member Index Means:")
-st.dataframe(data_member_index_means.round(2))
+st.dataframe(data_member_index_means_show.round(2))
 
 sorted_data = data_member_index.sort_values(by="Member index").round(2)
 
