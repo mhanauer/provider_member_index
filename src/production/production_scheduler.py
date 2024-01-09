@@ -19,7 +19,6 @@ data_member_index_means = (
     data_member_index.drop(columns=["Member ID"])
     .groupby("High risk member")
     .mean()
-    .round(0)
 ).reset_index()
 
 # Function to calculate what-if analysis
