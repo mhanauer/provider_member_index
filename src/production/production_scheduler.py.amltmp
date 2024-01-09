@@ -48,7 +48,7 @@ if st.button("Calculate Savings"):
     st.write(f"Total savings in PMPM: ${savings}")
 
 st.write("Data Member Index Means:")
-st.dataframe(data_member_index_means_show.round(2))
+st.dataframe(data_member_index_means_show.round(2), hide_index = True)
 
 sorted_data = data_member_index.sort_values(by="Member index").round(2)
 
