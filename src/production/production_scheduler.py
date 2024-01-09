@@ -32,7 +32,6 @@ def what_if_analysis(n_members_to_move, high_risk_pmpm, average_pmpm):
 st.title("What-If Analysis for Member Risk Adjustment")
 
 # Get average PMPM values for high-risk and average members, rounded to 0 decimal places
-data_member_index_means = data_member_index_means.round(0)
 high_risk_average_pmpm = data_member_index_means[data_member_index_means["High risk member"] == True]["PMPM"].iloc[0].round(0)
 average_member_pmpm = data_member_index_means[data_member_index_means["High risk member"] == False]["PMPM"].iloc[0].round(0)
 
@@ -49,7 +48,7 @@ if st.button("Calculate Savings"):
     st.write(f"Total savings in PMPM: ${savings}")
 
 st.write("Data Member Index Means:")
-st.dataframe(data_member_index_means)
+st.dataframe(data_member_index_means.round(2))
 
 sorted_data = data_member_index.sort_values(by="Member index").round(2)
 
