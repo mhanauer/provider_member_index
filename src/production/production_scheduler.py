@@ -51,7 +51,7 @@ if st.button("Calculate Savings"):
 st.write("Data Member Index Means:")
 st.dataframe(data_member_index_means)
 
-sorted_data = filtered_data.sort_values(by="Member ID")
+sorted_data = filtered_data.sort_values(by="Member index")
 
 
 # Display the data_member_index DataFrame
