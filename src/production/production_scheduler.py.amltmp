@@ -48,13 +48,11 @@ if st.button("Calculate Savings"):
     savings = what_if_analysis(n_members_to_move, high_risk_average_pmpm, average_member_pmpm)
     st.write(f"Total savings in PMPM: ${savings}")
 
-show_high_risk = st.checkbox("Show High-Risk Members Only")
+st.write("Data Member Index Means:")
+st.dataframe(data_member_index_means)
 
-# Filter the DataFrame based on the checkbox
-if show_high_risk:
-    filtered_data = data_member_index[data_member_index["High risk member"]]
-else:
-    filtered_data = data_member_index
+sorted_data = filtered_data.sort_values(by="Member ID")
+
 
 # Display the data_member_index DataFrame
-st.dataframe(data_member_index)
+st.dataframe(sorted_data)
